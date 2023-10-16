@@ -1,0 +1,1 @@
+This is the text present in the input.txt
