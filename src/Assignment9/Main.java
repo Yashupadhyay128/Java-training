@@ -51,7 +51,6 @@ public class Main {
                     System.out.print("Enter Employee ID to delete: ");
                     int deleteId = sc.nextInt();
                     empManagement.deleteEmployee(deleteId);
-                    System.out.println("Employee with ID " + deleteId + " deleted.");
                     break;
 
                 case 5:

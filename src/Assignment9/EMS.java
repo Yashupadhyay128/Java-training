@@ -26,12 +26,22 @@ public class EMS {
     }
 
     public void deleteEmployee(int id) {
-        employees.removeIf(employee -> employee.getId() == id);
+        List<Employee> employeeList = employees.stream().filter(employee -> String.valueOf(employee.getId()).equals(String.valueOf(id))).toList();
+        if (employeeList.isEmpty()) {
+            System.out.println("Employee doesn't exist with ID: " + id);
+        } else {
+            employees.removeIf(employee -> employee.getId() == id);
+            System.out.println("Employee with ID " + id + " deleted.");
+        }
     }
 
     public void displayAllEmployees() {
-        for (Employee employee : employees) {
-            System.out.println("ID: " + employee.getId() + ", Name: " + employee.getName() + ", Salary: " + employee.getSalary());
+        if (employees.isEmpty()) {
+            System.out.println("No employees present!");
+        } else {
+            for (Employee employee : employees) {
+                System.out.println("ID: " + employee.getId() + ", Name: " + employee.getName() + ", Salary: " + employee.getSalary());
+            }
         }
     }
 }
